@@ -5,10 +5,11 @@ namespace Tests\AppBundle\Service;
 
 use AppBundle\Entity\Calls;
 use AppBundle\Repository\CallsRepository;
+use AppBundle\Repository\Interfaces\CallsRepositoryInterface;
 use AppBundle\Services\CloseIOApiService;
 use AppBundle\Command\CloseIOCallsCommand;
-use AppBundle\Services\CloseOICallsMapperService;
-use AppBundle\Services\CloseOICallsProcessService;
+use AppBundle\Services\CloseIOCallsAutomaticallyMapper;
+use AppBundle\Services\CloseIOCallsProcessService;
 use Doctrine\ORM\EntityManager;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Client;
@@ -18,6 +19,7 @@ use GuzzleHttp\Middleware;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
+use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\HttpFoundation\Response;
 
 class CloseIOServiceTest extends KernelTestCase
@@ -49,23 +51,23 @@ class CloseIOServiceTest extends KernelTestCase
      */
     protected $host;
 
-    /**
-     * @var Response
-     */
-    private $response;
-
     /** @var CloseIOApiService */
     private $closeIOAPiService;
 
     /** @var EntityManager */
     private $entityManager;
 
-    /** @var CloseOICallsMapperService */
+    /** @var CloseIOCallsAutomaticallyMapper */
     private $closeOICallsMapperService;
 
     /** @var Application */
     private $application;
 
+    /** @var CallsRepositoryInterface */
+    private $callsRepository;
+
+    /** @var Container */
+    private $container;
 
     /**
      *
@@ -76,7 +78,13 @@ class CloseIOServiceTest extends KernelTestCase
 
         $this->callsRepository = $this->createMock(CallsRepository::class);
 
-        $this->closeOICallsMapperService = new CloseOICallsMapperService();
+        $this->closeOICallsMapperService = new CloseIOCallsAutomaticallyMapper();
+
+        $this->container = new Container();
+
+        $this->container->setParameter('close_io_skip', 0);
+        $this->container->setParameter('close_io_limit', 100);
+        $this->container->setParameter('close_io_skipKeys', ['remote_phone', 'phone', 'remote_phone_formatted']);
 
         $kernel = self::bootKernel();
 
@@ -108,10 +116,10 @@ JSON;
 
         $this->closeIOAPiService = new CloseIOApiService($client);
 
-        $closeAPI = $this->getMockBuilder(CloseOICallsProcessService::class)->setMethods(['__construct'])
-            ->setConstructorArgs([$this->closeIOAPiService, $this->entityManager, $this->closeOICallsMapperService])
+        /** @var CloseIOCallsProcessService $closeAPI */
+        $closeAPI = $this->getMockBuilder(CloseIOCallsProcessService::class)->setMethods(['__construct'])
+            ->setConstructorArgs([$this->closeIOAPiService, $this->entityManager, $this->closeOICallsMapperService, $this->container])
             ->getMock();
-
 
         $this->entityManager->expects($this->once())
             ->method('getRepository')
@@ -162,8 +170,9 @@ JSON;
 
         $this->closeIOAPiService = new CloseIOApiService($client);
 
-        $closeAPI = $this->getMockBuilder(CloseOICallsProcessService::class)->setMethods(['__construct'])
-            ->setConstructorArgs([$this->closeIOAPiService, $this->entityManager, $this->closeOICallsMapperService])
+
+        $closeAPI = $this->getMockBuilder(CloseIOCallsProcessService::class)->setMethods(['__construct'])
+            ->setConstructorArgs([$this->closeIOAPiService, $this->entityManager, $this->closeOICallsMapperService,$this->container])
             ->getMock();
 
         $this->entityManager->expects($this->exactly(2))
@@ -191,6 +200,7 @@ JSON;
             'from_year' => 2018,
             'from_month' => 2,
             'from_day' => 1,
+            'to_year' => 2018,
             'to_month' => 2,
             'to_day' => 1
         ]);
@@ -201,7 +211,7 @@ JSON;
         $this->assertContains('.', $output);
     }
 
-    public function test_that_it_returns_exception_400_from_close_but_only_one_is_new()
+    public function test_that_it_returns_exception_400()
     {
         $error = '{"error": {"message": "API call Bad Request", "rate_reset": 0.870663, "rate_limit": 40, "rate_window": 1, "rate_limit_type": "key", "rate_endpoint_group": "99ad0b85407fbfce6882152c4cd0b86d"}}';
 
@@ -212,8 +222,9 @@ JSON;
 
         $this->closeIOAPiService = new CloseIOApiService($client);
 
-        $closeAPI = $this->getMockBuilder(CloseOICallsProcessService::class)->setMethods(['__construct'])
-            ->setConstructorArgs([$this->closeIOAPiService, $this->entityManager, $this->closeOICallsMapperService])
+        /** @var CloseIOCallsProcessService $closeAPI */
+        $closeAPI = $this->getMockBuilder(CloseIOCallsProcessService::class)->setMethods(['__construct'])
+            ->setConstructorArgs([$this->closeIOAPiService, $this->entityManager, $this->closeOICallsMapperService, $this->container])
             ->getMock();
 
         $this->application->add(new CloseIOCallsCommand($closeAPI));
@@ -226,6 +237,7 @@ JSON;
             'from_year' => 2018,
             'from_month' => 2,
             'from_day' => 1,
+            'to_year' => 2018,
             'to_month' => 2,
             'to_day' => 1
         ]);
@@ -248,8 +260,9 @@ JSON;
 
         $this->closeIOAPiService = new CloseIOApiService($client);
 
-        $closeAPI = $this->getMockBuilder(CloseOICallsProcessService::class)->setMethods(['__construct'])
-            ->setConstructorArgs([$this->closeIOAPiService, $this->entityManager, $this->closeOICallsMapperService])
+        /** @var CloseIOCallsProcessService $closeAPI */
+        $closeAPI = $this->getMockBuilder(CloseIOCallsProcessService::class)->setMethods(['__construct'])
+            ->setConstructorArgs([$this->closeIOAPiService, $this->entityManager, $this->closeOICallsMapperService, $this->container])
             ->getMock();
 
         $this->application->add(new CloseIOCallsCommand($closeAPI));
@@ -262,6 +275,7 @@ JSON;
             'from_year' => 2018,
             'from_month' => 2,
             'from_day' => 1,
+            'to_year' => 2018,
             'to_month' => 2,
             'to_day' => 1
         ]);
@@ -271,41 +285,5 @@ JSON;
         $this->assertContains('Call data for dates from 2018-02-01T00:00:01.00+00:00 to 2018-02-01T23:59:59.00+00:00', $output);
         $this->assertContains('Server error:', $output);
         $this->assertContains('500 Internal Server Error', $output);
-    }
-
-    public function test_that_it_returns_exception_600_from_close_but_only_one_is_new()
-    {
-
-        $error = '{"error": {"message": "API call Internal Server Error", "rate_reset": 0.870663, "rate_limit": 40, "rate_window": 1, "rate_limit_type": "key", "rate_endpoint_group": "99ad0b85407fbfce6882152c4cd0b86d"}}';
-
-        $container = [];
-        $client = $this->getGuzzleClient([
-            new \GuzzleHttp\Psr7\Response(600, [], '')
-        ], $container);
-
-        $this->closeIOAPiService = new CloseIOApiService($client);
-
-        $closeAPI = $this->getMockBuilder(CloseOICallsProcessService::class)->setMethods(['__construct'])
-            ->setConstructorArgs([$this->closeIOAPiService, $this->entityManager, $this->closeOICallsMapperService])
-            ->getMock();
-
-        $this->application->add(new CloseIOCallsCommand($closeAPI));
-        $this->application->setAutoExit(false);
-        $command = $this->application->find( 'close:io:calls:export');
-
-        $commandTester = new CommandTester($command);
-        $commandTester->execute([
-            'command' =>  $command->getName(),
-            'from_year' => 2018,
-            'from_month' => 2,
-            'from_day' => 1,
-            'to_month' => 2,
-            'to_day' => 1
-        ]);
-
-        // the output of the command in the console
-        $output = $commandTester->getDisplay();
-        $this->assertContains('Call data for dates from 2018-02-01T00:00:01.00+00:00 to 2018-02-01T23:59:59.00+00:00', $output);
-        $this->assertContains('Unsuccessful request:', $output);
     }
 }

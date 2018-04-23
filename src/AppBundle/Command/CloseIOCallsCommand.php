@@ -1,31 +1,28 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: marc
- * Date: 10/04/2018
- * Time: 11:59
- */
-
 namespace AppBundle\Command;
 
-use AppBundle\Services\CloseOICallsProcessService;
+use AppBundle\Services\CloseIOCallsProcessService;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Class CloseIOCallsCommand
+ * @package AppBundle\Command
+ */
 class CloseIOCallsCommand extends Command
 {
     /**
-     * @var CloseOICallsProcessService
+     * @var CloseIOCallsProcessService
      */
     private $closeOICallsProcessService;
 
     /**
      * CloseIOCallsCommand constructor.
-     * @param CloseOICallsProcessService $closeOICallsProcessService
+     * @param CloseIOCallsProcessService $closeOICallsProcessService
      */
-    public function __construct(CloseOICallsProcessService $closeOICallsProcessService)
+    public function __construct(CloseIOCallsProcessService $closeOICallsProcessService)
     {
         $this->closeOICallsProcessService = $closeOICallsProcessService;
         parent::__construct();

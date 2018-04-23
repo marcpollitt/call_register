@@ -9,7 +9,13 @@
 namespace AppBundle\Repository\Interfaces;
 
 
+use Doctrine\Common\Collections\Collection;
+
+/**
+ * Interface CallsRepositoryInterface
+ * @package AppBundle\Repository\Interfaces
+ */
 interface CallsRepositoryInterface
 {
-
+    public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null);
 }

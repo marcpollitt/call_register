@@ -9,9 +9,8 @@
 namespace AppBundle\Services;
 
 use AppBundle\Entity\Calls;
-use AppBundle\Services\Interfaces\CallsServiceInterface;
 
-class CloseOICallsMapperService implements CallsServiceInterface
+class CloseIOCallsAutomaticallyMapper
 {
 
     const DATEFORMAT = ['date_updated','date_created'];
@@ -47,7 +46,7 @@ class CloseOICallsMapperService implements CallsServiceInterface
         return $this;
     }
 
-    public function getCalls()
+    public function getCalls(): Calls
     {
         return $this->calls;
 

@@ -8,8 +8,11 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Psr7\Response;
-use Psr\Log\LoggerInterface;
 
+/**
+ * Class CloseIOApiService
+ * @package AppBundle\Services
+ */
 class CloseIOApiService
 {
     /**
@@ -17,11 +20,21 @@ class CloseIOApiService
      */
     private $httpClient;
 
+    /**
+     * CloseIOApiService constructor.
+     * @param Client $httpClient
+     */
     public function __construct(Client $httpClient)
     {
         $this->httpClient = $httpClient;
     }
 
+    /**
+     * @param string $method
+     * @param string $path
+     * @param array $queryParams
+     * @return Response
+     */
     private function closeIORequest(string $method, string $path, array $queryParams = []): Response
     {
         try {
@@ -40,11 +53,8 @@ class CloseIOApiService
                     throw new ClientException($exception->getMessage(), $exception->getRequest(),$exception->getResponse());
                     break;
                 case $exception instanceof ServerException:
-                    throw new ServerException($exception->getMessage(), $exception->getRequest(), $exception->getResponse());
-                    break;
-                case $exception instanceof BadResponseException:
                 default:
-                    throw new BadResponseException($exception->getMessage(), $exception->getRequest(), $exception->getResponse());
+                    throw new ServerException($exception->getMessage(), $exception->getRequest(), $exception->getResponse());
             }
         }
     }

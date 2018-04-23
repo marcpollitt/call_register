@@ -13,50 +13,54 @@ use Doctrine\ORM\EntityManagerInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class CloseOICallsProcessService
+class CloseIOCallsProcessService
 {
-
-    /**
-     * @var int
-     */
-    const LIMIT = 100;
-
-    /**
-     * @var []
-     */
-    const SKIP_KEYS = ['remote_phone', 'phone', 'remote_phone_formatted'];
-
-    /**
-     * @var int
-     */
-    private $skip = 0;
-
     /**
      * @var EntityManagerInterface
      */
     private $entityManager;
 
     /**
-     * @var CloseOICallsMapperService
+     * @var CloseIOCallsAutomaticallyMapper
      */
     private $closeOICallsMapperService;
     /**
      * @var CloseIOApiService
      */
     private $closeIOApiService;
+    /**
+     * @var ContainerInterface
+     */
+    private $container;
+
+    /** @var integer */
+    private $skip;
+
+    /** @var integer */
+    private $limit;
+
+    /** @var array */
+    private $skipKeys;
 
     /**
-     * CloseOICallsProcessService constructor.
+     * CloseIOCallsProcessService constructor.
      * @param CloseIOApiService $closeIOApiService
      * @param EntityManagerInterface $entityManager
-     * @param CloseOICallsMapperService $closeOICallsMapperService
+     * @param CloseIOCallsAutomaticallyMapper $closeOICallsMapperService
+     * @param ContainerInterface $container
      */
-    public function __construct(CloseIOApiService $closeIOApiService, EntityManagerInterface $entityManager, CloseOICallsMapperService $closeOICallsMapperService)
+    public function __construct(CloseIOApiService $closeIOApiService, EntityManagerInterface $entityManager, CloseIOCallsAutomaticallyMapper $closeOICallsMapperService, ContainerInterface $container)
     {
         $this->entityManager = $entityManager;
         $this->closeOICallsMapperService = $closeOICallsMapperService;
         $this->closeIOApiService = $closeIOApiService;
+        $this->container = $container;
+
+        $this->skip = $this->container->getParameter('close_io_skip');
+        $this->limit = $this->container->getParameter('close_io_limit');
+        $this->skipKeys = $this->container->getParameter('close_io_skipKeys');
     }
 
     /**
@@ -79,14 +83,14 @@ class CloseOICallsProcessService
             foreach ($data['data'] as $callData) {
 
                 if (!$this->entityManager->getRepository(Calls::class)->findBy(['closeId' => $callData['id']])) {
-                    $calls = $this->closeOICallsMapperService->setCalls($callData, self::SKIP_KEYS)->getCalls();
+                    $calls = $this->closeOICallsMapperService->setCalls($callData, $this->skipKeys)->getCalls();
                     $this->entityManager->persist($calls);
                 }
             }
 
             $this->entityManager->flush();
             $this->entityManager->clear();
-            $this->skip += self::LIMIT;
+            $this->skip += $this->limit;
             $output->write('<bg=green;fg=green>.</>');
         } while ($data['has_more']);
 
@@ -135,7 +139,7 @@ class CloseOICallsProcessService
             'date_created__gt' => $from,
             'date_created__lt' => $to,
             '_skip' => $this->skip,
-            '_limit' => self::LIMIT,
+            '_limit' => $this->limit,
         ]);
         return $data;
     }
