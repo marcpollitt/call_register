@@ -11,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  * Class CloseIOCallsCommand
  * @package AppBundle\Command
  */
-class CloseIOCallsCommand extends Command
+final class CloseIOCallsCommand extends Command
 {
     /**
      * @var CloseIOCallsProcessService
@@ -30,9 +30,27 @@ class CloseIOCallsCommand extends Command
 
     protected function configure()
     {
+        $this->inputArgs();
+    }
+
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int|null|void
+     */
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        try {
+            $this->closeOICallsProcessService->closeIOCallProcessor($input,$output);
+        } catch (\Exception $exception) {
+            $output->writeln($exception->getMessage());
+        }
+    }
+
+    private function inputArgs(): void
+    {
         $fromDateTime = new \DateTime();
         $toDateTime = new \DateTime('+1 Day');
-
 
         $this
             // the name of the command (the part after "bin/console")
@@ -48,20 +66,5 @@ class CloseIOCallsCommand extends Command
             ->addArgument('to_year', InputArgument::OPTIONAL, 'To Year', $fromDateTime->format('Y'))
             ->addArgument('to_month', InputArgument::OPTIONAL, 'To Month', $fromDateTime->format('m'))
             ->addArgument('to_day', InputArgument::OPTIONAL, 'To Day', $toDateTime->format('d'));
-
-    }
-
-    /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
-     * @return int|null|void
-     */
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-        try {
-            $this->closeOICallsProcessService->closeIOCallProcessor($input,$output);
-        } catch (\Exception $exception) {
-            $output->writeln($exception->getMessage());
-        }
     }
 }
