@@ -2,93 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78887c81-bc81-4710-8361-05c9df6a17df" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/symfony-call-registery.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony-call-registery.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.htaccess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/AppCache.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config_dev.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config_prod.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config_test.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/parameters.yml.dist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/routing_dev.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/security.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/services.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/console" beforeDir="false" afterPath="$PROJECT_DIR$/bin/console" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpunit.xml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml.dist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/AppBundle.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Command/CloseIOCallsCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/CloseIOCallsCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Calls.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Calls.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Repository/CallsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CallsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Repository/Interfaces/CallsRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Interfaces/CallsRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/Calls.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/config/doctrine/metadata/orm/Calls.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/services.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Services/CloseIOApiService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/CloseIOApiService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Services/CloseIOCallsAutomaticallyMapper.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/CloseIOCallsAutomaticallyMapper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Services/CloseIOCallsProcessService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/CloseIOCallsProcessService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/AppBundle/Command/CloseIOCallsCommandTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Command/CloseIOCallsCommandTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/.css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/.css/nv.d3.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/.css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/.fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/.fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/.fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/.fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/.fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/.js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/.js/d3.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/.js/file.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/.js/holder.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/.js/html5shiv.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/.js/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/.js/nv.d3.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/.js/respond.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/AppBundle.php.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Command/CloseIOCallsCommand.php.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Command/dashboard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Command/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Controller/DefaultController.php.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Controller/dashboard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Controller/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Entity/Calls.php.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Entity/dashboard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Entity/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Repository/CallsRepository.php.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Repository/Interfaces/CallsRepositoryInterface.php.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Repository/Interfaces/dashboard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Repository/Interfaces/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Repository/dashboard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Repository/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Services/CloseIOApiService.php.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Services/CloseOICallsMapperService.php.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Services/CloseOICallsProcessService.php.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Services/Interfaces/CallsServiceInterface.php.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Services/Interfaces/dashboard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Services/Interfaces/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Services/dashboard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/Services/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/dashboard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/html/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/SymfonyRequirements.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/logs/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/sessions/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/.htaccess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app_dev.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/apple-touch-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/config.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Command/CloseIOCallsCommandTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Command/CloseIOCallsCommandTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -114,14 +29,20 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="CloseIOCallsCommandTest.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="CloseIOCallsCommandTest.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/tests/Command/CloseIOCallsCommandTest.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="259">
-                  <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-                  <folding>
-                    <element signature="e#44#65#0#PHP" expanded="true" />
-                  </folding>
+                <state relative-caret-position="198">
+                  <caret line="19" column="51" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="phpunit.xml" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/phpunit.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="165">
+                  <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
                 </state>
               </provider>
             </entry>
@@ -129,7 +50,7 @@
           <file leaf-file-name="CloseIOCallsProcessService.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Services/CloseIOCallsProcessService.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
+                <state relative-caret-position="-1649">
                   <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
                   <folding>
                     <element signature="e#113#134#0#PHP" expanded="true" />
@@ -147,11 +68,23 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Calls.orm.yml" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Calls.orm.yml" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Entity/config/doctrine/metadata/orm/Calls.orm.yml">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="90">
                   <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Kernel.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Kernel.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-564">
+                  <caret line="10" selection-start-line="10" selection-end-line="10" />
+                  <folding>
+                    <element signature="e#23#82#0#PHP" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -180,7 +113,7 @@
           <file leaf-file-name="CloseIOCallsAutomaticallyMapper.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Services/CloseIOCallsAutomaticallyMapper.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="96">
+                <state relative-caret-position="-441">
                   <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
                 </state>
               </provider>
@@ -199,7 +132,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Calls.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Calls.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Entity/Calls.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="30">
@@ -239,12 +172,12 @@
             <entry file="file://$PROJECT_DIR$/src/Command/CloseIOCallsCommand.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="107">
-                  <caret line="56" column="44" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="44" />
+                  <caret line="57" column="44" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="44" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="CallsRepository.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="CallsRepository.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Repository/CallsRepository.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="120">
@@ -315,6 +248,7 @@
       <find>calls</find>
       <find>auto</find>
       <find>AppBu</find>
+      <find>create</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -332,7 +266,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/AppBundle/Service/CloseOICallsService.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/CallService.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Services/Interfaces/CallService.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Services/Interfaces/CallServiceInterface.php" />
@@ -375,7 +308,6 @@
         <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/tests/AppBundle/Command/CloseIOCallsCommandTest.php" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/tests/Command/CloseIOCallsCommandTest.php" />
         <option value="$PROJECT_DIR$/src/Services/CloseIOCallsProcessService.php" />
         <option value="$PROJECT_DIR$/src/Services/CloseIOCallsAutomaticallyMapper.php" />
         <option value="$PROJECT_DIR$/src/Services/CloseIOApiService.php" />
@@ -383,6 +315,8 @@
         <option value="$PROJECT_DIR$/src/Repository/Interfaces/CallsRepositoryInterface.php" />
         <option value="$PROJECT_DIR$/src/Command/CloseIOCallsCommand.php" />
         <option value="$PROJECT_DIR$/config/packages/doctrine.yaml" />
+        <option value="$PROJECT_DIR$/phpunit.xml" />
+        <option value="$PROJECT_DIR$/tests/Command/CloseIOCallsCommandTest.php" />
       </list>
     </option>
   </component>
@@ -635,6 +569,12 @@
             <path>
               <item name="symfony-call-registery" type="b2602c69:ProjectViewProjectNode" />
               <item name="symfony-call-registery" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Command" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="symfony-call-registery" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony-call-registery" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="var" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
@@ -716,14 +656,29 @@
       <option name="project" value="LOCAL" />
       <updated>1524496113303</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="upgrade symfony from 3.4.8 to 4">
+      <created>1524834918133</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1524834918133</updated>
+    </task>
+    <task id="LOCAL-00004" summary="upgrade symfony from 3.4.8 to 4">
+      <created>1524835027845</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1524835027845</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167435000" />
+    <option name="totallyTimeSpent" value="168748000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="808" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Messages" />
@@ -792,16 +747,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Removing unused libraries." />
     <MESSAGE value="update to make code more stremlined with phpunit tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="update to make code more stremlined with phpunit tests" />
+    <MESSAGE value="upgrade symfony from 3.4.8 to 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="upgrade symfony from 3.4.8 to 4" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/dbal/lib/Doctrine/DBAL/Platforms/AbstractPlatform.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="169" column="53" selection-start-line="169" selection-start-column="53" selection-end-line="169" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Services/Abstracts/AbstractCloseIOCallsCallsService.php" />
     <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManagerInterface.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -923,16 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#23#82#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1020,44 +960,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Command/CloseIOCallsCommandTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-          <folding>
-            <element signature="e#44#65#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Services/CloseIOCallsProcessService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
-          <folding>
-            <element signature="e#113#134#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Services/CloseIOCallsAutomaticallyMapper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/CallsRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -1078,16 +984,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Services/CloseIOApiService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-          <folding>
-            <element signature="e#32#54#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1103,14 +999,7 @@
     <entry file="file://$PROJECT_DIR$/src/Command/CloseIOCallsCommand.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="107">
-          <caret line="56" column="44" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Calls.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <caret line="57" column="44" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -1142,6 +1031,71 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Calls.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/CallsRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-564">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#23#82#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Services/CloseIOApiService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding>
+            <element signature="e#32#54#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Services/CloseIOCallsAutomaticallyMapper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-441">
+          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Services/CloseIOCallsProcessService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1649">
+          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <folding>
+            <element signature="e#113#134#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpunit.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Command/CloseIOCallsCommandTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="19" column="51" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
         </state>
       </provider>
     </entry>

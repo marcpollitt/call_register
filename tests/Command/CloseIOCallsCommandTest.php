@@ -2,7 +2,6 @@
 
 namespace Tests\App\Service;
 
-
 use App\Entity\Calls;
 use App\Repository\CallsRepository;
 use App\Repository\Interfaces\CallsRepositoryInterface;
@@ -17,7 +16,7 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Symfony\Component\Console\Application;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Component\DependencyInjection\Container;
 
@@ -252,7 +251,7 @@ JSON;
         $this->assertContains('400 Bad Request', $output);
     }
 
-    public function test_that_it_returns_exception_500_from_close_but_only_one_is_new()
+    public function test_that_it_returns_exception_500_from_close()
     {
         $error = '{"error": {"message": "API call Internal Server Error", "rate_reset": 0.870663, "rate_limit": 40, "rate_window": 1, "rate_limit_type": "key", "rate_endpoint_group": "99ad0b85407fbfce6882152c4cd0b86d"}}';
 
