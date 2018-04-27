@@ -1,0 +1,18 @@
+eight_points_guzzle:
+    clients:
+        close:
+            base_url: 'https://app.close.io'
+
+            options:
+                timeout: 100
+
+                headers:
+                    Authorization: "Basic NWYyNmJlZWIyNTIyZDA2ZjQ3ODUwZTU0NjNiZTI5YTUyMWU5NjBmY2Q5ZmU3ZDdhMzE3ODhhM2E6"
+
+            # Find plugins here:
+            # https://github.com/8p/EightPointsGuzzleBundle#known-and-supported-plugins
+            plugin: ~
+
+
+services:
+    GuzzleHttp\Client: '@eight_points_guzzle.client.close'
