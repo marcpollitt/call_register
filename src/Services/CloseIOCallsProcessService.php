@@ -72,6 +72,8 @@ class CloseIOCallsProcessService
      */
     public function closeIOCallProcessor(InputInterface $input, OutputInterface $output)
     {
+        gc_enable();
+
         $fromDateTime = $this->setFromDateTime($input);
         $toDateTime = $this->setToDateTime($input);
 
@@ -93,6 +95,8 @@ class CloseIOCallsProcessService
 
             $this->entityManager->flush();
             $this->entityManager->clear();
+            gc_collect_cycles();
+
             $this->skip += $this->limit;
             $output->write('<bg=green;fg=green>.</>');
         } while ($data['has_more']);

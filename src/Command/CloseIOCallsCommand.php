@@ -64,8 +64,8 @@ final class CloseIOCallsCommand extends Command
             ->addArgument('from_year', InputArgument::OPTIONAL, 'From Year', $fromDateTime->format('Y'))
             ->addArgument('from_month', InputArgument::OPTIONAL, 'From Month', $fromDateTime->format('m'))
             ->addArgument('from_day', InputArgument::OPTIONAL, 'From Day', $fromDateTime->format('d'))
-            ->addArgument('to_year', InputArgument::OPTIONAL, 'To Year', $fromDateTime->format('Y'))
-            ->addArgument('to_month', InputArgument::OPTIONAL, 'To Month', $fromDateTime->format('m'))
+            ->addArgument('to_year', InputArgument::OPTIONAL, 'To Year', $toDateTime->format('Y'))
+            ->addArgument('to_month', InputArgument::OPTIONAL, 'To Month', $toDateTime->format('m'))
             ->addArgument('to_day', InputArgument::OPTIONAL, 'To Day', $toDateTime->format('d'));
     }
 }

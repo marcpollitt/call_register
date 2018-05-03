@@ -93,6 +93,55 @@ class CloseIOServiceTest extends KernelTestCase
         $this->application = new Application($kernel);
     }
 
+    public function test_that_it_default_returns_an_array_of_data_on_success_from_close()
+    {
+        $success1stResponse = <<<JSON
+{ "has_more": false, "data": [{"voicemail_url": null, "date_updated": "2018-04-18T15:37:49.766000+00:00", "created_by_name": "Germaine Spence", "_type": "Call", "contact_id": "cont_dqKIVUoybevdouWkIMKS0ODwDzwpnwiCQJPehwN65zu", "duration": 0, "remote_phone_formatted": "+44 7841 420264", "id": "acti_VT3epgixQRk78WcbJoDy6QiZzBOKbDL9DXbwUl5TBwI", "updated_by_name": "Germaine Spence", "users": [], "user_id": "user_ZKoTHcHj9YD0YTKT2hJJtsrg3SN2Zv45XxWd3gqVLaM", "voicemail_duration": 0, "transferred_from": null, "created_by": "user_ZKoTHcHj9YD0YTKT2hJJtsrg3SN2Zv45XxWd3gqVLaM", "note": "", "source": "Close.io", "has_recording": false, "dialer_id": null, "user_name": "Germaine Spence", "status": "created", "direction": "outbound", "local_phone_formatted": null, "updated_by": "user_ZKoTHcHj9YD0YTKT2hJJtsrg3SN2Zv45XxWd3gqVLaM", "remote_phone": "+447841420264", "organization_id": "orga_B7XdlAK4v7A4FSWGBiQUD5ykPdISZh4kViOK767d7RM", "phone": "+447841420264", "local_phone": null, "lead_id": "lead_podP7pHMJO9JPjO4fmGUHJMbSFUHArH3GgZVJFygKCD", "transferred_to": null, "date_created": "2018-04-18T15:37:49.766000+00:00", "recording_url": null}]}
+JSON;
+
+        $container = [];
+        $client = $this->getGuzzleClient([
+            new \GuzzleHttp\Psr7\Response(200, [], $success1stResponse)
+        ], $container);
+
+        $this->closeIOAPiService = new CloseIOApiService($client);
+
+        /** @var CloseIOCallsProcessService $closeAPI */
+        $closeAPI = $this->getMockBuilder(CloseIOCallsProcessService::class)->setMethods(['__construct'])
+            ->setConstructorArgs([$this->closeIOAPiService, $this->entityManager, $this->closeOICallsMapperService, $this->container])
+            ->getMock();
+
+        $this->entityManager->expects($this->once())
+            ->method('getRepository')
+            ->with(Calls::class)
+            ->willReturn($this->callsRepository);
+
+        $this->callsRepository->expects($this->once())
+            ->method('findBy')
+            ->with(['closeId' => 'acti_VT3epgixQRk78WcbJoDy6QiZzBOKbDL9DXbwUl5TBwI'])
+            ->willReturn(false);
+
+        $this->application->add(new CloseIOCallsCommand($closeAPI));
+        $this->application->setAutoExit(false);
+        $command = $this->application->find('close:io:calls:export');
+
+        $commandTester = new CommandTester($command);
+        $commandTester->execute([
+            'command' => $command->getName()
+        ]);
+
+        $fromDateTime = new \DateTime();
+        $toDateTime = new \DateTime('+1 Day');
+
+        $fromDate = $fromDateTime->format('Y-m-d\T00:00:01.00+00:00');
+        $toDate = $toDateTime->format('Y-m-d\T23:59:59.00+00:00');
+
+        // the output of the command in the console
+        $output = $commandTester->getDisplay();
+        $this->assertContains(sprintf('Call data for dates from %s to %s', $fromDate, $toDate), $output);
+        $this->assertContains('.', $output);
+    }
+
     protected function getGuzzleClient(array $responses = [], array &$container = []): Client
     {
         $mock = new MockHandler($responses);
@@ -153,7 +202,6 @@ JSON;
         $this->assertContains('Call data for dates from 2018-02-01T00:00:01.00+00:00 to 2018-02-01T23:59:59.00+00:00', $output);
         $this->assertContains('.', $output);
     }
-
 
     public function test_that_it_returns_an_array_of_data_on_success_from_close_but_only_one_is_new()
     {
