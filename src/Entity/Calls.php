@@ -135,6 +135,16 @@ class Calls
     /**
      * @var string
      */
+    private $remotePhone;
+
+    /**
+     * @var string
+     */
+    private $remotePhoneFormatted;
+
+    /**
+     * @var string
+     */
     private $leadId;
 
     /**
@@ -173,7 +183,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setDateUpdated($dateUpdated)
+    public function setDateUpdated(\DateTime $dateUpdated)
     {
         $this->dateUpdated = $dateUpdated;
 
@@ -447,6 +457,28 @@ class Calls
     }
 
     /**
+     * @param string $remotePhone
+     * @return Calls
+     */
+    public function setRemotePhone($remotePhone)
+    {
+        $this->remotePhone = $remotePhone;
+
+        return $this;
+    }
+
+    /**
+     * @param string $remotePhoneFormat
+     * @return Calls
+     */
+    public function setRemotePhoneFormatted($remotePhoneFormatted)
+    {
+        $this->remotePhoneFormatted = $remotePhoneFormatted;
+
+        return $this;
+    }
+
+    /**
      * Set updatedBy.
      *
      * @param string $updatedBy
@@ -523,7 +555,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setDateCreated($dateCreated)
+    public function setDateCreated(\DateTime $dateCreated)
     {
         $this->dateCreated = $dateCreated;
 

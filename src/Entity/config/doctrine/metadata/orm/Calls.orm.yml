@@ -101,6 +101,16 @@ App\Entity\Calls:
             length: 255
             nullable: true
             column: local_phone_formatted
+        remotePhone:
+            type: string
+            length: 255
+            nullable: true
+            column: remote_phone
+        remotePhoneFormatted:
+            type: string
+            length: 255
+            nullable: true
+            column: remote_phone_formatted
         updatedBy:
             type: string
             length: 255

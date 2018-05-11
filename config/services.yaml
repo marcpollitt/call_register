@@ -5,9 +5,7 @@ parameters:
     close_io_skip: 0
     close_io_limit: 100
     close_io_skipKeys:
-        - remote_phone
         - phone
-        - remote_phone_formatted
 
 
 services:
