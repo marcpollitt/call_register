@@ -66,6 +66,5 @@ class CloseIOCallsAutomaticallyMapper
     public function getCalls(): Calls
     {
         return $this->calls;
-
     }
 }
