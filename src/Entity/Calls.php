@@ -169,7 +169,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setVoicemailUrl($voicemailUrl = null)
+    public function setVoicemailUrl(?string $voicemailUrl = null)
     {
         $this->voicemailUrl = $voicemailUrl;
 
@@ -183,7 +183,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setDateUpdated(\DateTime $dateUpdated)
+    public function setDateUpdated(?\DateTime $dateUpdated): self
     {
         $this->dateUpdated = $dateUpdated;
 
@@ -197,7 +197,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setCreatedByName($createdByName)
+    public function setCreatedByName(?string $createdByName): self
     {
         $this->createdByName = $createdByName;
 
@@ -211,7 +211,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setType($type)
+    public function setType(?string $type): self
     {
         $this->type = $type;
 
@@ -225,7 +225,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setContactId($contactId)
+    public function setContactId(?string $contactId): self
     {
         $this->contactId = $contactId;
 
@@ -239,7 +239,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setDuration($duration)
+    public function setDuration(?int $duration): self
     {
         $this->duration = $duration;
 
@@ -253,7 +253,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setCloseId($closeId)
+    public function setCloseId(?string $closeId): self
     {
         $this->closeId = $closeId;
 
@@ -267,7 +267,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setUpdatedByName($updatedByName)
+    public function setUpdatedByName(?string $updatedByName): self
     {
         $this->updatedByName = $updatedByName;
 
@@ -281,7 +281,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setUsers($users)
+    public function setUsers(?array $users): self
     {
         $this->users = $users;
 
@@ -295,7 +295,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setUserId($userId)
+    public function setUserId(?string $userId): self
     {
         $this->userId = $userId;
 
@@ -309,7 +309,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setVoicemailDuration($voicemailDuration)
+    public function setVoicemailDuration(?int $voicemailDuration): self
     {
         $this->voicemailDuration = $voicemailDuration;
 
@@ -323,7 +323,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setTransferredFrom($transferredFrom = null)
+    public function setTransferredFrom(?string $transferredFrom = null): self
     {
         $this->transferredFrom = $transferredFrom;
 
@@ -337,7 +337,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setCreatedBy($createdBy)
+    public function setCreatedBy(?string $createdBy): self
     {
         $this->createdBy = $createdBy;
 
@@ -351,7 +351,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setNote($note = null)
+    public function setNote(?string $note = null): self
     {
         $this->note = $note;
 
@@ -365,7 +365,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setSource($source)
+    public function setSource(?string $source): self
     {
         $this->source = $source;
 
@@ -379,7 +379,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setHasRecording($hasRecording)
+    public function setHasRecording(?bool $hasRecording): self
     {
         $this->hasRecording = $hasRecording;
 
@@ -393,7 +393,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setDialerId($dialerId = null)
+    public function setDialerId(?string $dialerId = null): self
     {
         $this->dialerId = $dialerId;
 
@@ -407,7 +407,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setUserName($userName)
+    public function setUserName(?string $userName): self
     {
         $this->userName = $userName;
 
@@ -421,7 +421,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setStatus($status)
+    public function setStatus(?string $status): self
     {
         $this->status = $status;
 
@@ -435,7 +435,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setDirection($direction)
+    public function setDirection(?string $direction): self
     {
         $this->direction = $direction;
 
@@ -449,7 +449,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setLocalPhoneFormatted($localPhoneFormatted)
+    public function setLocalPhoneFormatted(?string $localPhoneFormatted): self
     {
         $this->localPhoneFormatted = $localPhoneFormatted;
 
@@ -460,7 +460,7 @@ class Calls
      * @param string $remotePhone
      * @return Calls
      */
-    public function setRemotePhone($remotePhone)
+    public function setRemotePhone(?string $remotePhone): self
     {
         $this->remotePhone = $remotePhone;
 
@@ -471,7 +471,7 @@ class Calls
      * @param string $remotePhoneFormat
      * @return Calls
      */
-    public function setRemotePhoneFormatted($remotePhoneFormatted)
+    public function setRemotePhoneFormatted(?string $remotePhoneFormatted): self
     {
         $this->remotePhoneFormatted = $remotePhoneFormatted;
 
@@ -485,7 +485,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setUpdatedBy($updatedBy)
+    public function setUpdatedBy(?string $updatedBy): self
     {
         $this->updatedBy = $updatedBy;
 
@@ -499,7 +499,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setOrganizationId($organizationId)
+    public function setOrganizationId(?string $organizationId): self
     {
         $this->organizationId = $organizationId;
 
@@ -513,7 +513,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setLocalPhone($localPhone)
+    public function setLocalPhone(?string $localPhone): self
     {
         $this->localPhone = $localPhone;
 
@@ -527,7 +527,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setLeadId($leadId)
+    public function setLeadId(?string $leadId): self
     {
         $this->leadId = $leadId;
 
@@ -541,7 +541,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setTransferredTo($transferredTo = null)
+    public function setTransferredTo(?string $transferredTo = null): self
     {
         $this->transferredTo = $transferredTo;
 
@@ -555,7 +555,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setDateCreated(\DateTime $dateCreated)
+    public function setDateCreated(?\DateTime $dateCreated): self
     {
         $this->dateCreated = $dateCreated;
 
@@ -569,7 +569,7 @@ class Calls
      *
      * @return Calls
      */
-    public function setRecordingUrl($recordingUrl)
+    public function setRecordingUrl(?string $recordingUrl): self
     {
         $this->recordingUrl = $recordingUrl;
 

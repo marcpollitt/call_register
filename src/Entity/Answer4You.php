@@ -14,6 +14,10 @@ class Answer4You
 
     private $callsMissed;
 
+    /**
+     * @param null|string $filename
+     * @return Answer4You
+     */
     public function setFilename(?string $filename): self
     {
         $this->filename = $filename;
@@ -21,6 +25,10 @@ class Answer4You
         return $this;
     }
 
+    /**
+     * @param \DateTimeInterface|null $createdDate
+     * @return Answer4You
+     */
     public function setCreatedDate(?\DateTimeInterface $createdDate): self
     {
         $this->createdDate = $createdDate;
@@ -28,6 +36,10 @@ class Answer4You
         return $this;
     }
 
+    /**
+     * @param null|string $department
+     * @return Answer4You
+     */
     public function setDepartment(?string $department): self
     {
         $this->department = $department;
@@ -35,6 +47,10 @@ class Answer4You
         return $this;
     }
 
+    /**
+     * @param int|null $callsMissed
+     * @return Answer4You
+     */
     public function setCallsMissed(?int $callsMissed): self
     {
         $this->callsMissed = $callsMissed;
