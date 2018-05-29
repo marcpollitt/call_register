@@ -29,6 +29,9 @@ final class CloseIOCallsCommand extends Command
         parent::__construct();
     }
 
+    /**
+     *
+     */
     protected function configure()
     {
         $this->inputArgs();
@@ -37,9 +40,9 @@ final class CloseIOCallsCommand extends Command
     /**
      * @param InputInterface $input
      * @param OutputInterface $output
-     * @return int|null|void
+     * @return null|void
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): void
     {
         try {
             $this->closeOICallsProcessService->closeIOCallProcessor($input,$output);
