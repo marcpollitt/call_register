@@ -28,6 +28,7 @@
     <testsuites>
         <testsuite name="Project Test Suite">
             <directory>tests</directory>
+            <exclude>src/Kernel.php</exclude>
         </testsuite>
     </testsuites>
 
@@ -39,6 +40,7 @@
                 <directory>src/*/*Bundle/Resources</directory>
                 <directory>src/*/Bundle/*Bundle/Resources</directory>
             </exclude>
+            <exclude>src/Kernel.php</exclude>
         </whitelist>
     </filter>
 </phpunit>

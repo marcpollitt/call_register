@@ -1,0 +1,28 @@
+App\Entity\Answer4You:
+    type: entity
+    table: closeio_A4U
+    repositoryClass: App\Repository\Answer4YouRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        filename:
+            type: text
+            nullable: true
+            column: filename
+        createdDate:
+            type: datetime
+            nullable: true
+            column: created_date
+        department:
+            type: text
+            nullable: true
+            column: department
+        callsMissed:
+            type: integer
+            nullable: true
+            column: calls_missed
+    lifecycleCallbacks: {  }
