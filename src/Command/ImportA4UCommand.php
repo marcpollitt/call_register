@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: marc
- * Date: 23/05/2018
- * Time: 10:00
- */
 
 namespace App\Command;
 
