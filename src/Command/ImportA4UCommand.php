@@ -43,7 +43,7 @@ final class ImportA4UCommand extends Command
      * @param OutputInterface $output
      * @return void
      */
-    protected function execute(InputInterface $input, OutputInterface $output): ?void
+    protected function execute(InputInterface $input, OutputInterface $output): void
     {
         try {
             $this->closeOIA4UProcessService->A4UDataProcessor($input, $output);
