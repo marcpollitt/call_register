@@ -52,5 +52,7 @@ class CloseOIA4UProcessService
 
         $this->entityManager->flush();
         $this->entityManager->clear();
+
+        $output->writeln('Imported Answer for you excel file successfully');
     }
 }

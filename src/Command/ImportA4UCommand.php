@@ -41,7 +41,6 @@ final class ImportA4UCommand extends Command
     {
         try {
             $this->closeOIA4UProcessService->A4UDataProcessor($input, $output);
-            $output->writeln('Imported Answer for you excel file successfully');
         } catch (\Exception $exception) {
             $output->writeln($exception->getMessage());
         }
