@@ -40,7 +40,6 @@
                 <directory>src/*/*Bundle/Resources</directory>
                 <directory>src/*/Bundle/*Bundle/Resources</directory>
             </exclude>
-            <exclude>src/Kernel.php</exclude>
         </whitelist>
     </filter>
 </phpunit>

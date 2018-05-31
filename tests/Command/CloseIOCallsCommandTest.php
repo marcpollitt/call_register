@@ -24,7 +24,7 @@ use Symfony\Component\DependencyInjection\Container;
  * Class CloseIOServiceTest
  * @package Tests\App\Service
  */
-class CloseIOServiceTest extends KernelTestCase
+class CloseIOCallsCommandTest extends KernelTestCase
 {
     const ERROR_MESSAGE = '{"error":"%s"}';
 
@@ -69,7 +69,7 @@ class CloseIOServiceTest extends KernelTestCase
     private $callsRepository;
 
     /** @var Container */
-    private $container;
+    private $myContainer;
 
     /**
      *
@@ -82,11 +82,11 @@ class CloseIOServiceTest extends KernelTestCase
 
         $this->closeOICallsMapperService = new CloseIOCallsAutomaticallyMapper();
 
-        $this->container = new Container();
+        $this->myContainer = new Container();
 
-        $this->container->setParameter('close_io_skip', 0);
-        $this->container->setParameter('close_io_limit', 100);
-        $this->container->setParameter('close_io_skipKeys', ['remote_phone', 'phone', 'remote_phone_formatted']);
+        $this->myContainer->setParameter('close_io_skip', 0);
+        $this->myContainer->setParameter('close_io_limit', 100);
+        $this->myContainer->setParameter('close_io_skipKeys', ['remote_phone', 'phone', 'remote_phone_formatted']);
 
         $kernel = self::bootKernel();
 
@@ -108,7 +108,7 @@ JSON;
 
         /** @var CloseIOCallsProcessService $closeAPI */
         $closeAPI = $this->getMockBuilder(CloseIOCallsProcessService::class)->setMethods(['__construct'])
-            ->setConstructorArgs([$this->closeIOAPiService, $this->entityManager, $this->closeOICallsMapperService, $this->container])
+            ->setConstructorArgs([$this->closeIOAPiService, $this->entityManager, $this->closeOICallsMapperService, $this->myContainer])
             ->getMock();
 
         $this->entityManager->expects($this->once())
@@ -169,7 +169,7 @@ JSON;
 
         /** @var CloseIOCallsProcessService $closeAPI */
         $closeAPI = $this->getMockBuilder(CloseIOCallsProcessService::class)->setMethods(['__construct'])
-            ->setConstructorArgs([$this->closeIOAPiService, $this->entityManager, $this->closeOICallsMapperService, $this->container])
+            ->setConstructorArgs([$this->closeIOAPiService, $this->entityManager, $this->closeOICallsMapperService, $this->myContainer])
             ->getMock();
 
         $this->entityManager->expects($this->once())
@@ -222,7 +222,7 @@ JSON;
 
 
         $closeAPI = $this->getMockBuilder(CloseIOCallsProcessService::class)->setMethods(['__construct'])
-            ->setConstructorArgs([$this->closeIOAPiService, $this->entityManager, $this->closeOICallsMapperService,$this->container])
+            ->setConstructorArgs([$this->closeIOAPiService, $this->entityManager, $this->closeOICallsMapperService, $this->myContainer])
             ->getMock();
 
         $this->entityManager->expects($this->exactly(2))
@@ -274,7 +274,7 @@ JSON;
 
         /** @var CloseIOCallsProcessService $closeAPI */
         $closeAPI = $this->getMockBuilder(CloseIOCallsProcessService::class)->setMethods(['__construct'])
-            ->setConstructorArgs([$this->closeIOAPiService, $this->entityManager, $this->closeOICallsMapperService, $this->container])
+            ->setConstructorArgs([$this->closeIOAPiService, $this->entityManager, $this->closeOICallsMapperService, $this->myContainer])
             ->getMock();
 
         $this->application->add(new CloseIOCallsCommand($closeAPI));
@@ -312,7 +312,7 @@ JSON;
 
         /** @var CloseIOCallsProcessService $closeAPI */
         $closeAPI = $this->getMockBuilder(CloseIOCallsProcessService::class)->setMethods(['__construct'])
-            ->setConstructorArgs([$this->closeIOAPiService, $this->entityManager, $this->closeOICallsMapperService, $this->container])
+            ->setConstructorArgs([$this->closeIOAPiService, $this->entityManager, $this->closeOICallsMapperService, $this->myContainer])
             ->getMock();
 
         $this->application->add(new CloseIOCallsCommand($closeAPI));
